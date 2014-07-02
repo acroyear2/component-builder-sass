@@ -1,4 +1,6 @@
-# component-builder-sass 
+# component-builder-sass [![Build Status](https://travis-ci.org/tetsuo/component-builder-sass.svg?branch=master)](https://travis-ci.org/tetsuo/component-builder-sass)
+
+sass compiler plugin for component-builder.
 
 ## Usage
 
