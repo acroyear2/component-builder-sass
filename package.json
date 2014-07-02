@@ -1,0 +1,32 @@
+{
+  "name": "component-builder-sass",
+  "version": "0.1.0",
+  "description": "sass compiler plugin for component-builder",
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": "tetsuo/component-builder-sass",
+  "homepage": "https://github.com/tetsuo/component-builder-sass",
+  "keywords": [
+    "sass",
+    "scss",
+    "css",
+    "plugin",
+    "component",
+    "component-builder"
+  ],
+  "author": {
+    "name": "Onur Gunduz",
+    "email": "ogunduz@gmail.com"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "component-builder": "^1.1.7",
+    "component-resolver": "^1.1.6",
+    "mocha": "^1.20.1",
+    "should": "^4.0.4"
+  },
+  "dependencies": {
+    "node-sass": "^0.9.3"
+  }
+}
