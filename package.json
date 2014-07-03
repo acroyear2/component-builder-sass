@@ -27,6 +27,7 @@
     "should": "^4.0.4"
   },
   "dependencies": {
-    "node-sass": "^0.9.3"
+    "node-sass": "^0.9.3",
+    "pluck": "0.0.4"
   }
 }

@@ -1,6 +1,7 @@
 
 var sass = require('node-sass');
 var path = require('path');
+var pluck = require('pluck');
 
 var filenamePattern = /^(?!_).+\.(scss)$/;
 
@@ -9,6 +10,13 @@ module.exports = function (options) {
 
   return function scss (file, done) {
     if (!filenamePattern.test(file.path)) return done();
+
+		var includePaths = [path.dirname(file.filename)];
+		for (var key in file.branch.dependencies) {
+			if (file.branch.dependencies.hasOwnProperty(key))
+				includePaths.push(file.branch.dependencies[key].path);
+		}
+		includePaths = includePaths.concat(options.includePaths);
 
     file.read(function (err, data) {
       sass.render({
@@ -21,23 +29,12 @@ module.exports = function (options) {
         error: function (error) {
           throw new Error(error);
         },
-        includePaths: [path.dirname(file.filename)].concat(options.includePaths||[]),
+        includePaths: includePaths,
         outputStyle: options.outputStyle,
         imagePath: options.imagePath
-      })
+      });
     });
 
   };
 };
 
-function extend (obj) {
-  Array.prototype.slice.call(arguments, 1).forEach(function (source) {
-    if (!source) return;
-
-    for (var key in source) {
-      obj[key] = source[key];
-    }
-  });
-
-  return obj;
-}
